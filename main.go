@@ -45,7 +45,7 @@ func main() {
 		counts[char]++
 	}
 
-	regstr := fmt.Sprintf("^[%s%s]{4,40}$", center, letters)
+	regstr := fmt.Sprintf("^[%s%s]{4,20}$", center, letters)
 	regex := regexp.MustCompile(regstr)
 
 	fmt.Printf("regex: %s\n", regstr)
@@ -78,7 +78,7 @@ func main() {
 				counts[c]++
 			}
 			if len(counts) == 7 {
-				fmt.Println("SPANGRAM:", word)
+				fmt.Println("PANGRAM:", word)
 				continue
 			}
 		}
