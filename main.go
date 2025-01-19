@@ -13,10 +13,12 @@ func main() {
 	var letters string
 	var center string
 	var wordfile string
+	var pangram bool
 
 	flag.StringVar(&letters, "letters", "", "List of non-center letters")
 	flag.StringVar(&center, "center", "", "The center letter")
 	flag.StringVar(&wordfile, "word-file", "/usr/share/dict/words", "Word list")
+	flag.BoolVar(&pangram, "pangram", false, "Only show pangrams")
 
 	flag.Parse()
 
@@ -82,6 +84,8 @@ func main() {
 				continue
 			}
 		}
-		fmt.Println(word)
+		if !pangram {
+			fmt.Println(word)
+		}
 	}
 }
